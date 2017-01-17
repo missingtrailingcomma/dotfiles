@@ -46,3 +46,8 @@ complete -W "NSGlobalDomain" defaults;
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
+
+# Login Prompt
+# cal | sed "s/.*/ & /;s/ $(date +%e) / [] /"
+# echo -e "\\[._.]/\n"
+cd ~/Downloads
