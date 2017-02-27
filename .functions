@@ -263,3 +263,7 @@ function code() {
     open -a "Visual Studio Code" --args "$F"
   fi
 }
+
+function trash() {
+	command mv "$@" ~/.Trash ;
+}

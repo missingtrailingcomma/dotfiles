@@ -100,10 +100,12 @@ brew install tree
 # brew install vbindiff
 # brew install webkit2png
 # brew install zopfli
+brew install unrar
 
 # js stuff
 brew install node
 brew install v8
+brew install yarn
 
 # download
 brew install youtube-dl
@@ -112,12 +114,15 @@ brew install aria2
 # web
 brew install tor
 
-## gui
+# brew cask check
+homebrew/completions/brew-cask-completion
+
+# gui
 brew cask install visual-studio-code
 brew cask install vlc
 brew cask install spectacle
 brew cask install google-chrome
-brew cask install fugu
+brew cask install cyberduck
 brew cask install macdown
 
 ## quicklook
