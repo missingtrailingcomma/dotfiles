@@ -106,6 +106,7 @@ brew install unrar
 brew install node
 brew install v8
 brew install yarn
+brew install watchman
 
 # download
 brew install youtube-dl
