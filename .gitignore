@@ -19,3 +19,6 @@ Thumbs.db
 # node related file
 node_modules
 npm-debug.log
+
+# vs code
+.vscode
