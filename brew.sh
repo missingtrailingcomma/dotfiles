@@ -35,22 +35,11 @@ brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 
 # Install other useful binaries.
-# brew install ack
-# brew install dark-mode
-#brew install exiv2
+brew install exiv2
 brew install git
-# brew install git-lfs
-# brew install p7zip
-# brew install pigz
-# brew install pv
-# brew install rename
-# brew install rhino
-# brew install speedtest_cli
-# brew install ssh-copy-id
-# brew install testssl
+brew install ssh-copy-id
 brew install tree
-# brew install vbindiff
-# brew install webkit2png
+brew install webkit2png
 # brew install zopfli
 brew install autojump
 
@@ -74,6 +63,7 @@ brew cask install visual-studio-code
 brew cask install vlc
 brew cask install spectacle
 brew cask install google-chrome
+brew cask install google-backup-and-sync
 
 ## quicklook
 brew cask install qlstephen
