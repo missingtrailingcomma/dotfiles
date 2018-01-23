@@ -64,6 +64,8 @@ brew cask install vlc
 brew cask install spectacle
 brew cask install google-chrome
 brew cask install google-backup-and-sync
+# use ps4 controller in mac
+brew cask install enjoyable
 
 ## quicklook
 brew cask install qlstephen
