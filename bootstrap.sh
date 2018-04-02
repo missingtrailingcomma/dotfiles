@@ -95,3 +95,7 @@ GIT_AUTHOR_EMAIL="tinirdoc@gmail.com"
 git config --global user.name "$GIT_AUTHOR_NAME"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 git config --global core.excludesfile ~/.gitignore_global
+
+
+# git clone https://github.com/acgotaku/BaiduExporter.git
+# git clone https://github.com/zTrix/webpage2html.git
