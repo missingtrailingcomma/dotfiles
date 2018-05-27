@@ -33,7 +33,7 @@ function doIt() {
 	if [[ "$(uname -s)" == "Darwin" ]]; then
 		if [ ! -d $OH_MY_ZSH_DIR ]; then
 			echo "install oh-my-zsh";
-			# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+			sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 		fi
 
 		if [ -d $OH_MY_ZSH_DIR ]; then

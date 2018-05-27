@@ -1,8 +1,28 @@
 # Disable the startup message
 startup_message off
 
+# Use Ctrl+b instead of Ctrl+a, which goes to the start of a line in Bash and
+# other applications that use the Readline library.
+escape ^Bb
+
 # Set a large scrollback buffer
 defscrollback 32000
 
 # Always start `screen` with UTF-8 enabled (`screen -U`)
 defutf8 on
+
+# Automatically detach all screens on accidental hangup
+autodetach on
+
+# Set the terminal color to 256color
+term "screen-256color"
+
+# Show a window list at the bottom.
+hardstatus alwayslastline
+hardstatus string "%-w%{= BW}%50>%n %t%{-}%+w%<"
+
+# For mouse scroll
+termcapinfo xterm* ti@:te@
+
+# Clear screen after quitting vim
+altscreen on

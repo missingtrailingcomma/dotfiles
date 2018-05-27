@@ -75,4 +75,4 @@ brew cask install quicklook-json
 brew cask install betterzipql
 
 # Remove outdated versions from the cellar.
-brew cleanup
+	
