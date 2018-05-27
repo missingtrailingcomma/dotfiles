@@ -1,0 +1,24 @@
+# !/bin/bash
+
+# Configure these parameters
+
+sleep=5 alive_interval=10 host=$1 session=$2
+
+SSH_OPTS="-oCompression=yes -oCheckHostIP=no
+-oServerAliveInterval=$alive_interval"
+
+# U=utf8, R=reattach, q=quiet, x=multiplex
+
+screen_cmd="scrn -x -q -U -R $session -t $session"
+
+# Just keep reconnecting upon failure
+
+while [ 1 ]; do
+  ssh -t $host $SSH_OPTS "$screen_cmd"
+
+  # Don't reconnect if disconnection not due to error (i.e., user detached)
+  if [ $? -eq 0 ]; then break; fi
+
+  echo "SSH connection lost, reconnecting in $sleep seconds..."
+  sleep $sleep
+done

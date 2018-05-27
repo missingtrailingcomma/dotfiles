@@ -18,8 +18,12 @@ autodetach on
 term "screen-256color"
 
 # Show a window list at the bottom.
+
 hardstatus alwayslastline
 hardstatus string "%-w%{= BW}%50>%n %t%{-}%+w%<"
+
+#hardstatus alwayslastline '%{= kG}[ %{G}%H | %{=kw}%?%-Lw%?%{g}%n*%f%t%?(%u)%? %{g}]%{w}%?%+Lw%?%?%=%{g}[ %{B}%Y-%m-%d %{W     }%c %{g}]'
+#hardstatus string "%-w%{= BW}%50>%n %t%{-}%+w%<"
 
 # For mouse scroll
 termcapinfo xterm* ti@:te@

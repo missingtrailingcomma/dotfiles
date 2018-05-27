@@ -1,6 +1,3 @@
-# build tool
-alias blaze="bazel "
-
 # navigation
 # ref: ~/.oh-my-zsh/lib/directories.zsh
 alias dl="cd ~/Downloads"

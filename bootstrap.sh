@@ -1,48 +1,72 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "${BASH_SOURCE}")";
-
 # git pull origin master;
 
 function doIt() {
 	local OH_MY_ZSH_DIR=~/.oh-my-zsh;
+	local HOME_BIN_DIR=~/bin;
 
-	echo "rsync dot files"
+	echo "creating ~/bin"
+	mkdir -p $HOME_BIN_DIR
+
+	echo "rsyncing dot files"
 	rsync --exclude ".git/" \
 		--exclude ".DS_Store" \
 		--exclude ".vscode" \
+		--exclude "ssh-screen" \
 		--exclude "oh-my-zsh" \
-		--exclude ".macos" \
+		--exclude "macos.sh" \
 		--exclude "bootstrap.sh" \
 		--exclude "brew.sh" \
 		--exclude "README.md" \
 		--exclude "LICENSE-MIT.txt" \
-		-avh --no-perms . ~;
+		-avh --no-perms . ~ &>/dev/null;
 
 	# brew
-	if [[ "$(uname -s)" == "Darwin" ]]; then
-		echo "brew installing"
-		# ./brew.sh;
+	if [[ "$(uname -s)" == "Darwin" ]] && ! type brew &>/dev/null; then
+		echo "installing brew and formulas"
+		./brew.sh;
 
-		echo "brew updating"
-		# brew update
+		echo "updating brew"
+		brew update
 	fi
 
 	# install and setup oh-my-zsh
 	# since zsh is guarenteed to be installed on mac, thus the `if` checking
 	if [[ "$(uname -s)" == "Darwin" ]]; then
 		if [ ! -d $OH_MY_ZSH_DIR ]; then
-			echo "install oh-my-zsh";
+			echo "installing oh-my-zsh";
 			sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 		fi
 
 		if [ -d $OH_MY_ZSH_DIR ]; then
-			echo "rsync oh-my-zsh config"
+			echo "rsyncing oh-my-zsh config"
 			rsync --exclude ".DS_Store" \
 				--exclude ".vscode" \
-				-avh --no-perms ./oh-my-zsh/* ~/.oh-my-zsh;
+				-avh --no-perms ./oh-my-zsh/* ~/.oh-my-zsh &>/dev/null;
+			
+			cd ${ZSH_CUSTOM1:-$ZSH/custom}/plugins
+			git clone https://github.com/djui/alias-tips.git
+			  git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
 		fi
 	fi
+
+	if [[ -d $HOME_BIN_DIR ]]; then
+		echo "rsyncing ssh-screen"
+		rsync --exclude ".DS_Store" \
+				--exclude ".vscode" \
+				-avh --no-perms ./ssh-screen ~/bin &>/dev/null;
+		chmod +x ~/bin/ssh-screen
+	fi
+
+	read -p "corp mac? (y/n) " -n 1;
+	echo "";
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+		echo "reclaiming home dir"
+		sudo defaults write /Library/Preferences/com.google.corp.machineinfo EnableAutofs -bool FALSE
+		sudo gmac-updater
+		echo "NOOOTE: reboot"
+	fi;
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
@@ -58,7 +82,20 @@ fi;
 unset doIt;
 
 # Switch to using brew-installed zsh as default shell
-if ! fgrep -q '/usr/local/bin/zsh' /etc/shells; then
-  echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells;
+if ! fgrep -q '/usr/local/bin/zsh' /etc/shells && [[ $SHELL != '/usr/local/bin/zsh' ]]; then
+  echo "switching to zsh"
+  echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells;
   chsh -s /usr/local/bin/zsh;
 fi;
+
+
+# set git credentials
+GIT_AUTHOR_NAME="Yizheng Shen"
+GIT_AUTHOR_EMAIL="tinirdoc@gmail.com"
+
+git config --global user.name "$GIT_AUTHOR_NAME"
+git config --global user.email "$GIT_AUTHOR_EMAIL"
+git config --global core.excludesfile ~/.gitignore_global
+
+# git clone https://github.com/acgotaku/BaiduExporter.git
+# git clone https://github.com/zTrix/webpage2html.git

@@ -1,5 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/homebrew/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/homebrew/lib:$LD_LIBRARY_PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -51,7 +53,7 @@ ZSH_THEME="crr"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git history terminalapp brew common-alias encode64 osx python tmux colorize extract)
+plugins=(git history terminalapp brew common-alias encode64 osx python colorize extract alias-tips fasd zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -74,6 +76,8 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+autoload -U compinit && compinit
 
 # init command
 cd ~/Downloads
