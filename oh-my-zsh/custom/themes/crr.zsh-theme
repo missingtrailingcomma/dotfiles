@@ -1,5 +1,5 @@
 local ret_status="%{$fg_bold[red]%}$%{$reset_color%} "
-PROMPT='--------------------------------
+PROMPT='
 %{$fg[white]%}%~%{$reset_color%} $(git_prompt_info)
 ${ret_status}'
 
