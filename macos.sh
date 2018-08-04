@@ -658,6 +658,10 @@ defaults write com.google.Chrome DisablePrintPreview -bool true
 defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 # defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool true
 
+# chime like iOS devices
+defaults write com.apple.PowerChime ChimeOnAllHardware -bool true
+open /System/Library/CoreServices/PowerChime.app
+
 ###############################################################################
 # GPGMail 2                                                                   #
 ###############################################################################
