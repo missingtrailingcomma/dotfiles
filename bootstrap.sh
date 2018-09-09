@@ -47,7 +47,7 @@ function doIt() {
 			
 			cd ${ZSH_CUSTOM1:-$ZSH/custom}/plugins
 			git clone https://github.com/djui/alias-tips.git
-			  git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+			git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
 		fi
 	fi
 
