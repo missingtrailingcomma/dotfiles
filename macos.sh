@@ -132,8 +132,8 @@ defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 # defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # set a blazingly fast keyboard repeat rate
-defaults delete NSGlobalDomain KeyRepeat
-defaults delete NSGlobalDomain InitialKeyRepeat
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 # Set language and text formats
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
@@ -657,6 +657,10 @@ defaults write com.google.Chrome DisablePrintPreview -bool true
 # Expand the print dialog by default
 defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 # defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool true
+
+# chime like iOS devices
+defaults write com.apple.PowerChime ChimeOnAllHardware -bool true
+open /System/Library/CoreServices/PowerChime.app
 
 ###############################################################################
 # GPGMail 2                                                                   #
