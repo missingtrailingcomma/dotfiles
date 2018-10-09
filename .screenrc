@@ -1,9 +1,9 @@
 # Disable the startup message
 startup_message off
 
-# Use Ctrl+b instead of Ctrl+a, which goes to the start of a line in Bash and
+# Use Ctrl+j instead of Ctrl+a, which goes to the start of a line in Bash and
 # other applications that use the Readline library.
-escape ^Bb
+escape ^Jj
 
 # Set a large scrollback buffer
 defscrollback 32000
@@ -17,16 +17,30 @@ autodetach on
 # Set the terminal color to 256color
 term "screen-256color"
 
-# Show a window list at the bottom.
+# Enable audiable bell to allow bell to work
+vbell off
 
-hardstatus alwayslastline
-hardstatus string "%-w%{= BW}%50>%n %t%{-}%+w%<"
+# http://superuser.com/questions/310251/use-terminal-scrollbar-with-tmux
+termcapinfo xterm*|xs|rxvt|terminal ti@:te@
 
-#hardstatus alwayslastline '%{= kG}[ %{G}%H | %{=kw}%?%-Lw%?%{g}%n*%f%t%?(%u)%? %{g}]%{w}%?%+Lw%?%?%=%{g}[ %{B}%Y-%m-%d %{W     }%c %{g}]'
-#hardstatus string "%-w%{= BW}%50>%n %t%{-}%+w%<"
+# Mouse tracking allows to switch region focus by clicking
+mousetrack on
 
-# For mouse scroll
-termcapinfo xterm* ti@:te@
+# navigating regions with Ctrl-arrows
+bindkey "^[[1;5D" focus left
+bindkey "^[[1;5C" focus right
+bindkey "^[[1;5A" focus up
+bindkey "^[[1;5B" focus down
 
-# Clear screen after quitting vim
-altscreen on
+# https://www.gnu.org/software/screen/manual/html_node/String-Escapes.html
+# https://www.kilobitspersecond.com/2014/02/10/understanding-gnu-screens-hardstatus-strings/
+hardstatus alwayslastline '%{= kw}%-w%{+b rw} %n %t%?(%u)%? %{-}%+w %=:)'
+
+# initial screen config
+chdir $PWD
+screen
+split -v
+focus
+chdir $PWD/Desktop
+screen
+focus
