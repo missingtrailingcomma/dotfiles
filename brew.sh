@@ -62,6 +62,7 @@ brew cask install appcleaner
 # dev
 brew cask install visual-studio-code
 brew cask install spectacle
+brew cask isntall imageoptim
 
 ## quicklook
 brew cask install qlstephen
