@@ -57,9 +57,20 @@ ZSH_THEME="crr"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    alias-tips
+    colorize
+    common-alias
+    encode64
+    extract
+    fasd
     git
-    history terminalapp
-    common-alias encode64 osx python colorize extract alias-tips fasd zsh-completions)
+    history
+    mercurial
+    osx
+    python
+    terminalapp
+    zsh-completions
+  )
 
 source $ZSH/oh-my-zsh.sh
 
