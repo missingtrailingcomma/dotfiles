@@ -39,8 +39,8 @@ hardstatus alwayslastline '%{= kw}%-w%{+b rw} %n %t%?(%u)%? %{-}%+w %=:)'
 # initial screen config
 chdir $PWD
 screen
-split -v
-focus
-chdir $PWD/Desktop
-screen
-focus
+# split -v
+# focus
+# chdir $PWD/Desktop
+# screen
+# focus

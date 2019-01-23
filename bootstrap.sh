@@ -44,7 +44,7 @@ function doIt() {
 			rsync --exclude ".DS_Store" \
 				--exclude ".vscode" \
 				-avh --no-perms ./oh-my-zsh/* ~/.oh-my-zsh &>/dev/null;
-			
+
 			cd ${ZSH_CUSTOM1:-$ZSH/custom}/plugins
 			git clone https://github.com/djui/alias-tips.git
 			git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
@@ -58,15 +58,6 @@ function doIt() {
 				-avh --no-perms ./ssh-screen ~/bin &>/dev/null;
 		chmod +x ~/bin/ssh-screen
 	fi
-
-	read -p "corp mac? (y/n) " -n 1;
-	echo "";
-	if [[ $REPLY =~ ^[Yy]$ ]]; then
-		echo "reclaiming home dir"
-		sudo defaults write /Library/Preferences/com.google.corp.machineinfo EnableAutofs -bool FALSE
-		sudo gmac-updater
-		echo "NOOOTE: reboot"
-	fi;
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then

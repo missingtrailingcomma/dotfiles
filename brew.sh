@@ -4,10 +4,6 @@
 cd ~
 mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 
-# read -p "corp mac && opt-out the host @ https://upvote.googleplex.com/hosts. Done?" -n 1;
-# echo "";
-# if [[ $REPLY =~ ^[Yy]$ ]]; then
-
 # Make sure we’re using the latest Homebrew.
 brew update
 
