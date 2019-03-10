@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # ref: https://g3doc.corp.google.com/company/teams/mac-road-warrior/index.md?cl=head#homebrew
 
-cd ~
-mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+#cd ~
+#mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
 
 # Make sure we’re using the latest Homebrew.
 brew update
