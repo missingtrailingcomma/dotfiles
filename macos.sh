@@ -161,7 +161,7 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 defaults write com.apple.screencapture location -string "${HOME}/Downloads"
 
 # Save screenshots in JPG format (options: BMP, GIF, JPG, PNG, PDF, TIFF)
-defaults write com.apple.screencapture type -string "jpg"
+defaults write com.apple.screencapture type -string "png"
 
 # Disable shadow in screenshots
 # defaults write com.apple.screencapture disable-shadow -bool true
