@@ -41,6 +41,7 @@ brew install tree
 brew install webkit2png
 brew install zopfli
 brew install fasd
+brew install mas # mac app store cmd management
 
 # coding stuff
 brew install node
@@ -61,15 +62,22 @@ brew cask install visual-studio-code
 brew cask install spectacle
 brew cask isntall imageoptim
 
-## quicklook
-brew cask install qlstephen
+# quicklook
+# ref: https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode
-brew cask install quicklook-csv
+brew cask install qlstephen
+brew cask install qlmarkdown
 brew cask install quicklook-json
+brew cask install quicklook-csv
+brew cask install webpquicklook suspicious-package
 brew cask install betterzipql
 
 ## music
 brew cask install musicbrainz-picard
+
+# app store
+mas lucky theunarchiver
+mas lucky WeChat
 
 brew cleanup
 
