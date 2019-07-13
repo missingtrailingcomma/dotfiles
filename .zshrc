@@ -59,7 +59,7 @@ ZSH_THEME="crr"
 plugins=(
     alias-tips
     colorize
-    common-alias
+    common-aliases
     encode64
     extract
     fasd
