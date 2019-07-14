@@ -1,3 +1,6 @@
+[ui]
+username = yizhengd
+
 [color]
 diff.trailingwhitespace = none
 

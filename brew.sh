@@ -50,6 +50,12 @@ brew install node
 brew install youtube-dl
 brew install aria2
 
+## video playing
+brew install mpv
+
+## video streaming
+brew install streamlink
+
 # default
 brew cask install vlc
 brew cask install google-chrome
@@ -80,4 +86,3 @@ mas lucky theunarchiver
 mas lucky WeChat
 
 brew cleanup
-
