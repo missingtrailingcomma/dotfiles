@@ -22,8 +22,15 @@ function doIt() {
 		--exclude "LICENSE-MIT.txt" \
 		-avh --no-perms . ~ &>/dev/null;
 
-	# brew
 	if [[ "$(uname -s)" == "Darwin" ]] && ! type brew &>/dev/null; then
+
+    # xcode dev
+    # ref: https://github.com/atomantic/dotfiles/blob/master/install.sh
+    xcode-select --install 2>&1 > /dev/null
+    sudo xcode-select -s /Applications/Xcode.app/Contents/Developer 2>&1 > /dev/null
+    sudo xcodebuild -license accept 2>&1 > /dev/null
+
+    # brew
 		echo "installing brew and formulas"
 		./brew.sh;
 

@@ -1,0 +1,12 @@
+[ui]
+username = yizhengd
+
+[color]
+diff.trailingwhitespace = none
+
+[extensions]
+hgext.extdiff =
+
+[extdiff]
+cmd.wdiff = diff
+opts.wdiff = -p -U 8 -w -r -N

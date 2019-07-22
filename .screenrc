@@ -23,6 +23,11 @@ vbell off
 # http://superuser.com/questions/310251/use-terminal-scrollbar-with-tmux
 termcapinfo xterm*|xs|rxvt|terminal ti@:te@
 
+# enable 256-color mode, AB = background, AF=foreground
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# use current bg color for erased chars
+defbce "on"
+
 # Mouse tracking allows to switch region focus by clicking
 mousetrack on
 

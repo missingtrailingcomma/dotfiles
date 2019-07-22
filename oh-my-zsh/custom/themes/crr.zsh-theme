@@ -1,7 +1,18 @@
-local ret_status="%{$fg_bold[red]%}$%{$reset_color%} "
-PROMPT='
-%{$fg[white]%}%~%{$reset_color%} $(git_prompt_info)
+local user="%(!.%{$fg[white]%}.%{$fg[white]%})%n%{$reset_color%}"
+
+local at="%{$fg[white]%}@%{$reset_color%}"
+
+local host="%{$fg[white]%}$(hostname -s)%{$reset_color%}"
+
+local pwd="%{$fg[white]%}%~%{$reset_color%}"
+
+local ret_status="%{$fg[red]%}$%{$reset_color%} "
+
+PS1='
+${pwd} $(git_prompt_info)
 ${ret_status}'
+
+RPS1='${user}${at}${host}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "

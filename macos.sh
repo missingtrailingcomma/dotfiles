@@ -103,12 +103,12 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Disable smart dashes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
-# Set a custom wallpaper image. `DefaultDesktop.jpg` is already a symlink, and
-# all wallpapers are in `/Library/Desktop Pictures/`.
+# Set a custom wallpaper image.
+# ref: https://github.com/herrbischoff/awesome-macos-command-line#wallpaper
 rm -rf ~/Library/Application Support/Dock/desktoppicture.db
 sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
-wget http://visualstyle.jp/facebook_wallpaper/2017_03CA.jpg -P "${HOME}/Documents"
-sudo ln -s "${HOME}/Documents/2017_03CA.jpg" /System/Library/CoreServices/DefaultDesktop.jpg
+wget http://visualstyle.jp/facebook_wallpaper/2017_03CA.jpg -P "${HOME}/Documents/wallpapers"
+sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '${HOME}/Documents/wallpapers/2017_03CA.jpg'" && killall Dock
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -161,7 +161,7 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 defaults write com.apple.screencapture location -string "${HOME}/Downloads"
 
 # Save screenshots in JPG format (options: BMP, GIF, JPG, PNG, PDF, TIFF)
-defaults write com.apple.screencapture type -string "jpg"
+defaults write com.apple.screencapture type -string "png"
 
 # Disable shadow in screenshots
 # defaults write com.apple.screencapture disable-shadow -bool true
@@ -472,6 +472,37 @@ defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
 # Disable automatic spell checking
 defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnabled"
 
+# Vacuum Mail index.
+# ref: https://github.com/herrbischoff/awesome-macos-command-line#vacuum-mail-index
+#
+# (*
+# Speed up Mail.app by vacuuming the Envelope Index
+# Code from: http://web.archive.org/web/20071008123746/http://www.hawkwings.net/2007/03/03/scripts-to-automate-the-mailapp-envelope-speed-trick/
+# Originally by "pmbuko" with modifications by Romulo
+# Updated by Brett Terpstra 2012
+# Updated by Mathias Törnblom 2015 to support V3 in El Capitan and still keep backwards compatibility
+# Updated by Andrei Miclaus 2017 to support V4 in Sierra
+# *)
+
+# tell application "Mail" to quit
+# set os_version to do shell script "sw_vers -productVersion"
+# set mail_version to "V2"
+# considering numeric strings
+#     if "10.10" <= os_version then set mail_version to "V3"
+#     if "10.12" <= os_version then set mail_version to "V4"
+#     if "10.13" <= os_version then set mail_version to "V5"
+#     if "10.14" <= os_version then set mail_version to "V6"
+# end considering
+
+# set sizeBefore to do shell script "ls -lnah ~/Library/Mail/" & mail_version & "/MailData | grep -E 'Envelope Index$' | awk {'print $5'}"
+# do shell script "/usr/bin/sqlite3 ~/Library/Mail/" & mail_version & "/MailData/Envelope\\ Index vacuum"
+
+# set sizeAfter to do shell script "ls -lnah ~/Library/Mail/" & mail_version & "/MailData | grep -E 'Envelope Index$' | awk {'print $5'}"
+
+# display dialog ("Mail index before: " & sizeBefore & return & "Mail index after: " & sizeAfter & return & return & "Enjoy the new speed!")
+
+# tell application "Mail" to activate
+
 ###############################################################################
 # Spotlight                                                                   #
 ###############################################################################
@@ -661,13 +692,6 @@ defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 # chime like iOS devices
 defaults write com.apple.PowerChime ChimeOnAllHardware -bool true
 open /System/Library/CoreServices/PowerChime.app
-
-###############################################################################
-# GPGMail 2                                                                   #
-###############################################################################
-
-# Disable signing emails by default
-# defaults write ~/Library/Preferences/org.gpgtools.gpgmail SignNewEmailsByDefault -bool false
 
 ###############################################################################
 # Opera & Opera Developer                                                     #
