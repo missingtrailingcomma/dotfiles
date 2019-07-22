@@ -79,7 +79,6 @@ if ! fgrep -q '/usr/local/bin/zsh' /etc/shells && [[ $SHELL != '/usr/local/bin/z
   chsh -s /usr/local/bin/zsh;
 fi;
 
-
 # set git credentials
 GIT_AUTHOR_NAME="Yizheng Shen"
 GIT_AUTHOR_EMAIL="tinirdoc@gmail.com"
