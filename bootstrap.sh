@@ -39,24 +39,21 @@ function doIt() {
 	fi
 
 	# install and setup oh-my-zsh
-	# since zsh is guarenteed to be installed on mac, thus the `if` checking
-	if [[ "$(uname -s)" == "Darwin" ]]; then
-		if [ ! -d $OH_MY_ZSH_DIR ]; then
-			echo "installing oh-my-zsh";
-			sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-		fi
+  if [ ! -d $OH_MY_ZSH_DIR ]; then
+    echo "installing oh-my-zsh";
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  fi
 
-		if [ -d $OH_MY_ZSH_DIR ]; then
-			echo "rsyncing oh-my-zsh config"
-			rsync --exclude ".DS_Store" \
-				--exclude ".vscode" \
-				-avh --no-perms ./oh-my-zsh/* ~/.oh-my-zsh &>/dev/null;
+  if [ -d $OH_MY_ZSH_DIR ]; then
+    echo "rsyncing oh-my-zsh config"
+    rsync --exclude ".DS_Store" \
+      --exclude ".vscode" \
+      -avh --no-perms ./oh-my-zsh/* ~/.oh-my-zsh &>/dev/null;
 
-			cd ${ZSH_CUSTOM1:-$ZSH/custom}/plugins
-			git clone https://github.com/djui/alias-tips.git
-			git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
-		fi
-	fi
+    cd ${ZSH_CUSTOM1:-$ZSH/custom}/plugins
+    git clone https://github.com/djui/alias-tips.git
+    git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/custom/plugins/zsh-completions
+  fi
 
 	if [[ -d $HOME_BIN_DIR ]]; then
 		echo "rsyncing ssh-screen"
@@ -85,7 +82,6 @@ if ! fgrep -q '~/homebrew/bin/zsh' /etc/shells && [[ $SHELL != '~/homebrew/bin/z
   echo "~/homebrew/bin/zsh" | sudo tee -a /etc/shells;
   chsh -s ~/homebrew/bin/zsh;
 fi;
-
 
 # set git credentials
 GIT_AUTHOR_NAME="Yizheng Shen"
