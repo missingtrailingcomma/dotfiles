@@ -80,10 +80,10 @@ fi;
 unset doIt;
 
 # Switch to using brew-installed zsh as default shell
-if ! fgrep -q '/usr/local/bin/zsh' /etc/shells && [[ $SHELL != '/usr/local/bin/zsh' ]]; then
+if ! fgrep -q '~/homebrew/bin/zsh' /etc/shells && [[ $SHELL != '~/homebrew/bin/zsh' ]]; then
   echo "switching to zsh"
-  echo "/usr/local/bin/zsh" | sudo tee -a /etc/shells;
-  chsh -s /usr/local/bin/zsh;
+  echo "~/homebrew/bin/zsh" | sudo tee -a /etc/shells;
+  chsh -s ~/homebrew/bin/zsh;
 fi;
 
 

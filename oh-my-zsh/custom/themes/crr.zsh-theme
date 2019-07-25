@@ -4,12 +4,10 @@ local at="%{$fg[white]%}@%{$reset_color%}"
 
 local host="%{$fg[white]%}$(hostname -s)%{$reset_color%}"
 
-local pwd="%{$fg[white]%}%~%{$reset_color%}"
-
 local ret_status="%{$fg[red]%}$%{$reset_color%} "
 
 PS1='
-${pwd} $(git_prompt_info)
+%{$fg[white]%}$(abbrev_pwd)%{$reset_color%} $(git_prompt_info)
 ${ret_status}'
 
 RPS1='${user}${at}${host}'

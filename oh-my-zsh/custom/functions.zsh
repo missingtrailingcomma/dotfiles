@@ -42,3 +42,31 @@ function brewsize() {
     do echo $pkg `brew info $pkg | egrep '[0-9]* files, ' | sed 's/^.*[0-9]* files, \(.*\)).*$/\1/'`
   done
 }
+
+# helper function for abbrev_pwd
+function title_escape() {
+  case "$TERM" in
+    screen*) printf "\001\033k%s\033\\\\\002" "$1";;
+    *) echo ""
+  esac
+}
+
+# stuff for abbreviating PS1 for CITC paths
+# from https://groups.google.com/a/google.com/forum/#!msg/citc-users/ryX8MasmCcs/nJ2BACz9xcsJ thanks to chronos@
+# with title_escape calls added by mattdv
+function abbrev_pwd() {
+  case "$PWD" in
+    $HOME|$HOME/*)
+      printf "~%s%s" "$(title_escape \~)" "${PWD#$HOME}"
+      ;;
+    /google/src/cloud/$USER/*)
+      local client
+      client="${PWD#/google/src/cloud/$USER/}"
+      client="${client%%/*}"
+      printf "%%{$fg[yellow]%%}[%s%s]%%{$reset_color%%}%%{$fg[white]%%}%s%%{$reset_color%%}" "$client" "$(title_escape $client)" "${PWD#/google/src/cloud/$USER/$client}"
+      ;;
+    *)
+      printf "%s%s" "$PWD" "$(title_escape ^_^)"
+      ;;
+  esac
+}
