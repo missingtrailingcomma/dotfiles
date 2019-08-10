@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
-# git pull origin master;
+local OH_MY_ZSH_DIR=~/.oh-my-zsh;
+local HOME_BIN_DIR=~/bin;
+local PROJECT_BIN_DIR=~/projects;
 
 function doIt() {
-	local OH_MY_ZSH_DIR=~/.oh-my-zsh;
-	local HOME_BIN_DIR=~/bin;
-
 	echo "creating ~/bin"
 	mkdir -p $HOME_BIN_DIR
 
@@ -22,21 +21,30 @@ function doIt() {
 		--exclude "LICENSE-MIT.txt" \
 		-avh --no-perms . ~ &>/dev/null;
 
-	if [[ "$(uname -s)" == "Darwin" ]] && ! type brew &>/dev/null; then
+  # try install `brew` in mac or linux
+  if ! type brew &>/dev/null; then
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+      # install homebrew
+      /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-    # xcode dev
-    # ref: https://github.com/atomantic/dotfiles/blob/master/install.sh
-    xcode-select --install 2>&1 > /dev/null
-    sudo xcode-select -s /Applications/Xcode.app/Contents/Developer 2>&1 > /dev/null
-    sudo xcodebuild -license accept 2>&1 > /dev/null
+      # xcode dev
+      # ref: https://github.com/atomantic/dotfiles/blob/master/install.sh
+      xcode-select --install 2>&1 > /dev/null
+      sudo xcode-select -s /Applications/Xcode.app/Contents/Developer 2>&1 > /dev/null
+      sudo xcodebuild -license accept 2>&1 > /dev/null
+	  else if [[ "$(uname -s)" == "Linux" ]]; then
+      # ref: https://docs.brew.sh/Homebrew-on-Linux
+      git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew
+      mkdir ~/.linuxbrew/bin
+      ln -s ../Homebrew/bin/brew ~/.linuxbrew/bin
+      eval $(~/.linuxbrew/bin/brew shellenv)
+    fi
+  fi
 
-    # brew
-		echo "installing brew and formulas"
-		./brew.sh;
-
-		echo "updating brew"
-		brew update
-	fi
+  if ! type brew &>/dev/null; then
+    echo "installing homebrew and formulas"
+    ./brew.sh;
+  fi
 
 	# install and setup oh-my-zsh
   if [ ! -d $OH_MY_ZSH_DIR ]; then
@@ -91,5 +99,18 @@ git config --global user.name "$GIT_AUTHOR_NAME"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 git config --global core.excludesfile ~/.gitignore_global
 
-# git clone https://github.com/acgotaku/BaiduExporter.git
-# git clone https://github.com/zTrix/webpage2html.git
+echo "creating project directory"
+mkdir -p $PROJECT_BIN_DIR
+cd $PROJECT_BIN_DIR
+
+if [ ! -d "BaiduExporter" ]; then
+  git clone https://github.com/acgotaku/BaiduExporter.git
+fi
+
+if [ ! -d "webpage2html" ]; then
+  git clone https://github.com/zTrix/webpage2html.git
+fi
+
+if [ ! -d "octoscreen" ]; then
+  git clone git@github.com:orderedlist/octoscreen.git
+fi

@@ -2,16 +2,6 @@ function trash() {
 	command mv "$@" ~/.Trash ;
 }
 
-# start vs code
-function code() {
-  if [[ $# = 0 ]]; then
-    open -a "Visual Studio Code"
-  else
-    [[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
-    open -a "Visual Studio Code" --args "$F"
-  fi
-}
-
 # `o` with no arguments opens the current directory, otherwise opens the given location
 function o() {
 	if [ $# -eq 0 ]; then
@@ -43,14 +33,6 @@ function brewsize() {
   done
 }
 
-# helper function for abbrev_pwd
-function title_escape() {
-  case "$TERM" in
-    screen*) printf "\001\033k%s\033\\\\\002" "$1";;
-    *) echo ""
-  esac
-}
-
 # stuff for abbreviating PS1 for CITC paths
 # from https://groups.google.com/a/google.com/forum/#!msg/citc-users/ryX8MasmCcs/nJ2BACz9xcsJ thanks to chronos@
 # with title_escape calls added by mattdv
@@ -68,5 +50,12 @@ function abbrev_pwd() {
     *)
       printf "%s%s" "$PWD" "$(title_escape ^_^)"
       ;;
+  esac
+}
+
+function title_escape() {
+  case "$TERM" in
+    screen*) printf "\001\033k%s\033\\\\\002" "$1";;
+    *) echo ""
   esac
 }

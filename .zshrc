@@ -1,10 +1,12 @@
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH=$HOME/homebrew/bin:$PATH
-export PATH=$PATH:$HOME/Codes/depot_tools
+# set PATH environment variable
+# brew installed binary should override default binary
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  export PATH=$HOME/homebrew/bin:$PATH
+else if [[ "$(uname -s)" == "Linux" ]]; then
+  export PATH=$HOME/.linuxbrew/bin:$PATH
+fi
+export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 
-export LD_LIBRARY_PATH=$HOME/homebrew/lib:$LD_LIBRARY_PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -96,23 +98,3 @@ source $ZSH/oh-my-zsh.sh
 
 autoload -U compinit && compinit
 setopt histignorealldups sharehistory
-
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
-# zstyle ':completion:*' auto-description 'specify: %d'
-# zstyle ':completion:*' completer _expand _complete _correct _approximate
-# zstyle ':completion:*' format 'Completing %d'
-# zstyle ':completion:*' group-name ''
-# zstyle ':completion:*' menu select=2
-# eval "$(dircolors -b)"
-# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-# zstyle ':completion:*' list-colors ''
-# zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-# zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-# zstyle ':completion:*' menu select=long
-# zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-# zstyle ':completion:*' use-compctl false
-# zstyle ':completion:*' verbose true
-
-# zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-# zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
