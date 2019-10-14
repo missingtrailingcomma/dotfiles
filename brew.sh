@@ -43,6 +43,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   brew cask install google-backup-and-sync
   brew cask install google-drive-file-stream
   brew cask install appcleaner
+  brew cask install keka
 
   # dev
   brew cask install visual-studio-code
@@ -56,7 +57,6 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   brew install mas
 
   # app store
-  mas lucky theunarchiver
   mas lucky WeChat
 fi
 
