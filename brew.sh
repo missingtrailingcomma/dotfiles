@@ -7,6 +7,9 @@ brew update
 brew upgrade
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
+  # mac app store cmd management
+  brew install mas
+
   # Install more recent versions of some macOS tools.
   brew install vim --with-override-system-vi
   brew install homebrew/dupes/grep
@@ -37,27 +40,36 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   brew cask install webpquicklook suspicious-package
   brew cask install betterzipql
 
-  # default
-  brew cask install vlc
-  brew cask install google-chrome
-  brew cask install google-backup-and-sync
-  brew cask install google-drive-file-stream
+  # clean up
   brew cask install appcleaner
+
+  # system
   brew cask install keka
+  brew cask install spectacle
+
+  # media
+  brew cask install google-chrome
+  brew cask install vlc
+  brew cask install google-drive-file-stream
+  brew cask install baidunetdisk
+
+  # backup
+  brew cask install google-backup-and-sync
 
   # dev
   brew cask install visual-studio-code
-  brew cask install spectacle
-  brew cask isntall imageoptim
 
-  ## music
+  # music
   brew cask install musicbrainz-picard
 
-  # mac app store cmd management
-  brew install mas
+  # gaming
+  brew cask install steam
 
-  # app store
+  # social
   mas lucky WeChat
+
+  # stuff/tasks management
+  mas lucky spark
 fi
 
 # install zsh and completion
@@ -68,7 +80,6 @@ brew install exiv2
 brew install git
 brew install ssh-copy-id
 brew install tree
-brew install webkit2png
 brew install zopfli
 brew install fasd
 
@@ -78,11 +89,5 @@ brew install node
 # download
 brew install youtube-dl
 brew install aria2
-
-## video playing
-brew install mpv
-
-## video streaming
-brew install streamlink
 
 brew cleanup
