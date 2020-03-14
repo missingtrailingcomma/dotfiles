@@ -2,7 +2,7 @@
 
 local OH_MY_ZSH_DIR=~/.oh-my-zsh;
 local HOME_BIN_DIR=~/bin;
-local PROJECT_BIN_DIR=~/projects;
+local PROJECT_DIR=~/Projectx;
 
 function doIt() {
 	echo "creating ~/bin"
@@ -103,17 +103,13 @@ git config --global user.email "$GIT_AUTHOR_EMAIL"
 git config --global core.excludesfile ~/.gitignore_global
 
 echo "creating project directory"
-mkdir -p $PROJECT_BIN_DIR
-cd $PROJECT_BIN_DIR
-
-if [ ! -d "BaiduExporter" ]; then
-  git clone https://github.com/acgotaku/BaiduExporter.git
-fi
-
-if [ ! -d "webpage2html" ]; then
-  git clone https://github.com/zTrix/webpage2html.git
-fi
+mkdir -p $PROJECT_DIR
+cd $PROJECT_DIR
 
 if [ ! -d "octoscreen" ]; then
   git clone git@github.com:orderedlist/octoscreen.git
+fi
+
+if [ ! -d "BaiduExporter" ]; then
+  git clone https://github.com/acgotaku/BaiduExporter.git
 fi

@@ -6,6 +6,27 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
+# install zsh and completion
+brew install zsh zsh-completions
+
+# Install other useful binaries.
+brew install exiv2
+brew install git
+brew install ssh-copy-id
+brew install tree
+brew install zopfli
+brew install fasd
+
+# coding stuff
+brew install node
+
+# download
+brew install youtube-dl
+brew install aria2
+
+# archive
+brew install monolith
+
 if [[ "$(uname -s)" == "Darwin" ]]; then
   # mac app store cmd management
   brew install mas
@@ -71,23 +92,5 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   # stuff/tasks management
   mas lucky spark
 fi
-
-# install zsh and completion
-brew install zsh zsh-completions
-
-# Install other useful binaries.
-brew install exiv2
-brew install git
-brew install ssh-copy-id
-brew install tree
-brew install zopfli
-brew install fasd
-
-# coding stuff
-brew install node
-
-# download
-brew install youtube-dl
-brew install aria2
 
 brew cleanup

@@ -3,7 +3,7 @@
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias doc="cd ~/Documents"
-alias p="cd ~/Projects"
+alias p="cd ~/Projectx"
 alias temp="cd /tmp/"
 
 # misc
