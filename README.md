@@ -1,6 +1,6 @@
-# Shen's dotfile
+# Shen's dotfiles
 
-### Get Started
+## Get Started
 
 ```sh
 git clone https://github.com/love4shen/dotfiles.git && cd dotfiles && source bootstrap.sh
@@ -12,21 +12,17 @@ To update, `cd` into your local `dotfiles` repository and then:
 source bootstrap.sh
 ```
 
-Alternatively, to update while avoiding the confirmation prompt:
+## Overview
 
-```sh
-set -- -f; source bootstrap.sh
-```
+`bootstrap.sh` sets up a few things:
 
-### Sensible macOS defaults
-
-When setting up a new Mac, you may want to set some sensible macOS defaults:
-
-```sh
-./.macos
-```
-
-TODO: make `.macos` into `bootstrap.sh`
+- rsync various dotfiles
+- install `homebrew` and a few brew formulas as well as GUI if the OS is macos via `brew.sh`
+- install `oh-my-zsh` along with some plugins
+- make `zsh` the default shell
+- configure `git`
+- create the project dir and fill in a few projects
+- tune macos defaults via `macos.sh`
 
 ## Credit
 
