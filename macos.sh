@@ -31,13 +31,13 @@ sudo nvram -d SystemAudioVolume
 # defaults write com.apple.universalaccess reduceTransparency -bool true
 
 # # Menu bar: hide the Time Machine, Volume, User icons, bluetooth
-# for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
-# 	defaults write "${domain}" dontAutoLoad -array \
-# 		"/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
-# 		"/System/Library/CoreServices/Menu Extras/Volume.menu" \
-# 		"/System/Library/CoreServices/Menu Extras/User.menu" \
-# 		"/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
-# done
+for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
+	defaults write "${domain}" dontAutoLoad -array \
+		# "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
+		# "/System/Library/CoreServices/Menu Extras/Volume.menu" \
+		# "/System/Library/CoreServices/Menu Extras/User.menu" \
+		"/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
+done
 
 # defaults write com.apple.systemuiserver menuExtras -array \
 # 	"/System/Library/CoreServices/Menu Extras/AirPort.menu" \
