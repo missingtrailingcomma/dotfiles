@@ -21,6 +21,7 @@ rsync --exclude ".git/" \
   --exclude ".vscode" \
   --exclude "ssh-screen" \
   --exclude "oh-my-zsh" \
+  --exclude "init" \
   --exclude "macos.sh" \
   --exclude "bootstrap.sh" \
   --exclude "brew.sh" \
