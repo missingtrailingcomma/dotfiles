@@ -186,6 +186,16 @@ sudo systemsetup -settimezone "America/Toronto" > /dev/null
 # Stop iTunes from responding to the keyboard media keys
 # launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
+# CapsLock -> Control
+# credit: https://github.com/shotaIDE/dotfiles/blob/5a5036985c7ccb1f3c6ba6d47c2a2b1ce5498451/macos_defaults/jis_keyboard.sh
+defaults -currentHost write -g com.apple.keyboard.modifiermapping.${keyboard_id} -array-add '
+<dict>
+  <key>HIDKeyboardModifierMappingDst</key>
+  <integer>30064771300</integer>
+  <key>HIDKeyboardModifierMappingSrc</key>
+  <integer>30064771129</integer>
+</dict>'
+
 ###############################################################################
 # Energy saving                                                               #
 ###############################################################################
