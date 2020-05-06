@@ -29,8 +29,8 @@ brew install screen
 brew install exiv2
 brew install ssh-copy-id
 brew install tree
-brew install zopfli
-brew install fasd
+brew install fzf
+yes |  /Users/$USER/homebrew/opt/fzf/install 
 
 # coding stuff
 brew install node
@@ -73,7 +73,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   brew cask install google-drive-file-stream
 
   # backup
-  brew cask install google-backup-and-sync
+  # brew cask install google-backup-and-sync
 
   # dev
   brew cask install visual-studio-code

@@ -128,7 +128,6 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 # ref: https://github.com/herrbischoff/awesome-macos-command-line#wallpaper
 rm -rf ~/Library/Application Support/Dock/desktoppicture.db
 sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
-wget http://visualstyle.jp/facebook_wallpaper/2017_03CA.jpg -P "${HOME}/Documents/wallpapers"
 sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '${HOME}/Documents/wallpapers/2017_03CA.jpg'" && killall Dock
 
 ###############################################################################
@@ -166,7 +165,7 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 # defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain KeyRepeat -int 10
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 # Set language and text formats
