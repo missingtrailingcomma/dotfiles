@@ -104,6 +104,11 @@ function doIt() {
   echo "- filling project dir: $PROJECT_DIR"
   gitCloneIfNotExist https://github.com/orderedlist/octoscreen.git $PROJECT_DIR/octoscreen
 
+  echo "- create other necessary dirs"
+  mkdir -p  ~/Downloads
+  mkdir -p  ~/Desktop
+  mkdir -p  ~/Documents
+
   if [[ "$(uname -s)" == "Darwin" ]]; then
     read -p "Tune macos defaults? (y/n) " -n 1
     echo ""
