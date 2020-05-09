@@ -2,11 +2,10 @@
 # brew installed binary should override default binary
 if [[ "$(uname -s)" == "Darwin" ]]; then
   export PATH=$HOME/homebrew/bin:$PATH
-else if [[ "$(uname -s)" == "Linux" ]]; then
+elif [[ "$(uname -s)" == "Linux" ]]; then
   export PATH=$HOME/.linuxbrew/bin:$PATH
 fi
 export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
-
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -67,13 +66,13 @@ plugins=(
     fasd
     git
     history
+    history-substring-search
     mercurial
     osx
     python
     terminalapp
-    zsh-completions
     zsh-autosuggestions
-    history-substring-search
+    zsh-completions
     zsh-syntax-highlighting
 )
 

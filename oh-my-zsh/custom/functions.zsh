@@ -12,13 +12,8 @@ function o() {
 }
 
 # Create a new directory and enter it
-function mkd() {
+function md() {
 	mkdir -p "$@" && cd "$_";
-}
-
-# Change working directory to the top-most Finder window location
-function cdf() { # short for `cdfinder`
-	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
 }
 
 # Determine size of a file or total size of a directory
@@ -41,31 +36,4 @@ function brewsize() {
   for pkg in `brew list -f1 | egrep -v '\.|\.\.'`
     do echo $pkg `brew info $pkg | egrep '[0-9]* files, ' | sed 's/^.*[0-9]* files, \(.*\)).*$/\1/'`
   done
-}
-
-# stuff for abbreviating PS1 for CITC paths
-# from https://groups.google.com/a/google.com/forum/#!msg/citc-users/ryX8MasmCcs/nJ2BACz9xcsJ thanks to chronos@
-# with title_escape calls added by mattdv
-function abbrev_pwd() {
-  case "$PWD" in
-    $HOME|$HOME/*)
-      printf "~%s%s" "$(title_escape \~)" "${PWD#$HOME}"
-      ;;
-    /google/src/cloud/$USER/*)
-      local client
-      client="${PWD#/google/src/cloud/$USER/}"
-      client="${client%%/*}"
-      printf "%%{$fg[yellow]%%}[%s%s]%%{$reset_color%%}%%{$fg[white]%%}%s%%{$reset_color%%}" "$client" "$(title_escape $client)" "${PWD#/google/src/cloud/$USER/$client}"
-      ;;
-    *)
-      printf "%s%s" "$PWD" "$(title_escape ^_^)"
-      ;;
-  esac
-}
-
-function title_escape() {
-  case "$TERM" in
-    screen*) printf "\001\033k%s\033\\\\\002" "$1";;
-    *) echo ""
-  esac
 }
