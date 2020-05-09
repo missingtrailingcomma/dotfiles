@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+function gitCloneIfNotExist() {
+  if [[ ! -d $2 ]]; then
+    mkdir -p $2
+    git clone $1 $2
+  fi
+}
+
 function doIt() {
   local OH_MY_ZSH_DIR=~/.oh-my-zsh;
   local HOME_BIN_DIR=~/bin;
@@ -71,18 +78,10 @@ function doIt() {
       -avh --no-perms ./oh-my-zsh/* ~/.oh-my-zsh &>/dev/null;
 
     local ZSH_PLUGIN_PATH=${ZSH_CUSTOM1:-$ZSH/custom}/plugins
-    if [[ ! -d $ZSH_PLUGIN_PATH/alias-tips ]]; then
-      git clone https://github.com/djui/alias-tips.git $ZSH_PLUGIN_PATH
-    fi
-    if [[ ! -d $ZSH_PLUGIN_PATH/zsh-completions ]]; then
-      git clone https://github.com/zsh-users/zsh-completions $ZSH_PLUGIN_PATH
-    fi
-    if [[ ! -d $ZSH_PLUGIN_PATH/zsh-autosuggestions ]]; then
-      git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_PLUGIN_PATH
-    fi
-    if [[ ! -d $ZSH_PLUGIN_PATH/zsh-syntax-highlighting ]]; then
-      git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_PLUGIN_PATH
-    fi
+    gitCloneIfNotExist https://github.com/djui/alias-tips.git $ZSH_PLUGIN_PATH/alias-tips
+    gitCloneIfNotExist https://github.com/zsh-users/zsh-completions $ZSH_PLUGIN_PATH/zsh-completions
+    gitCloneIfNotExist https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_PLUGIN_PATH/zsh-syntax-highlighting
+    gitCloneIfNotExist https://github.com/zsh-users/zsh-autosuggestions $ZSH_PLUGIN_PATH/zsh-autosuggestions
   fi
 
   # Switch to using brew-installed zsh as default shell
@@ -97,13 +96,13 @@ function doIt() {
   git config --global user.email "$GIT_AUTHOR_EMAIL"
   git config --global core.excludesfile ~/.gitignore_global
 
+  # TODO: set up github as well
+
   echo "- creating project dir: $PROJECT_DIR"
   mkdir -p $PROJECT_DIR
 
   echo "- filling project dir: $PROJECT_DIR"
-  if [[ ! -d $PROJECT_DIR/octoscreen ]]; then
-    git clone https://github.com/orderedlist/octoscreen.git $PROJECT_DIR
-  fi
+  gitCloneIfNotExist https://github.com/orderedlist/octoscreen.git $PROJECT_DIR/octoscreen
 
   if [[ "$(uname -s)" == "Darwin" ]]; then
     read -p "Tune macos defaults? (y/n) " -n 1
