@@ -102,7 +102,7 @@ function doIt() {
 
   echo "- filling project dir: $PROJECT_DIR"
   if [[ ! -d $PROJECT_DIR/octoscreen ]]; then
-    git clone git@github.com:orderedlist/octoscreen.git $PROJECT_DIR
+    git clone https://github.com/orderedlist/octoscreen.git $PROJECT_DIR
   fi
 
   if [[ "$(uname -s)" == "Darwin" ]]; then
