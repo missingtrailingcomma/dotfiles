@@ -12,7 +12,7 @@ function o() {
 }
 
 # Create a new directory and enter it
-function md() {
+function mkd() {
 	mkdir -p "$@" && cd "$_";
 }
 
