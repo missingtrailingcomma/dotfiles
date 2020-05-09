@@ -37,3 +37,16 @@ function brewsize() {
     do echo $pkg `brew info $pkg | egrep '[0-9]* files, ' | sed 's/^.*[0-9]* files, \(.*\)).*$/\1/'`
   done
 }
+
+function update() {
+  if [[ "$(uname -s)" == "Darwin" ]]; then
+    sudo softwareupdate -i -a;
+  fi
+
+  brew update;
+  brew upgrade;
+  if [[ "$(uname -s)" == "Darwin" ]]; then
+    brew cask upgrade;
+  fi
+  brew cleanup;
+}
