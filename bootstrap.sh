@@ -20,9 +20,16 @@ function doIt() {
     --exclude "macos.sh" \
     --exclude "bootstrap.sh" \
     --exclude "brew.sh" \
+    --exclude ".zshrc" \
     --exclude "README.md" \
     --exclude "LICENSE-MIT.txt" \
     -avh --no-perms . ~ &>/dev/null;
+
+  read -p "Should rsync .zshrc? (y/n) " -n 1
+  echo ""
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    rsync ".zshrc" . ~ &>/dev/null;
+  fi
 
   rsync --exclude ".DS_Store" \
       --exclude ".vscode" \
@@ -107,10 +114,7 @@ function doIt() {
     fi
   fi
 
-  # if [[ "$(uname -s)" == "Darwin" ]]; then
-  #   echo "- tuning macos defaults"
-  #   ./macos.sh
-  # fi
+  echo -e "\nDone done."
 }
 
 read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
