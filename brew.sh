@@ -68,9 +68,6 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   brew cask install vlc
   brew cask install google-drive-file-stream
 
-  # backup
-  # brew cask install google-backup-and-sync
-
   # dev
   brew cask install visual-studio-code
 
