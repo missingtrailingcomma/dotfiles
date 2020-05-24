@@ -101,20 +101,10 @@ function doIt() {
   echo "- creating project dir: $PROJECT_DIR"
   mkdir -p $PROJECT_DIR
 
-  echo "- filling project dir: $PROJECT_DIR"
-  gitCloneIfNotExist https://github.com/orderedlist/octoscreen.git $PROJECT_DIR/octoscreen
-
   echo "- create other necessary dirs"
   mkdir -p  ~/Downloads
   mkdir -p  ~/Desktop
   mkdir -p  ~/Documents
-
-  echo "- set up cron jobs"
-  local CRON_SETTINGS_FILE=$(mktemp /tmp/XXXXXX)
-  # update at 13:00 every Sunday
-  # https://crontab.guru/#0_13_*_*_0
-  echo "0 13 * * 0 update" > $CRON_SETTINGS_FILE
-  crontab $CRON_SETTINGS_FILE
 
   if [[ "$(uname -s)" == "Darwin" ]]; then
     read -p "Tune macos defaults? (y/n) " -n 1
