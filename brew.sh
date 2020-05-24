@@ -61,9 +61,6 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   # system
   brew cask install spectacle
 
-  # tasks management
-  mas lucky spark
-
   # files
   brew cask install keka
 
