@@ -68,6 +68,9 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   brew cask install vlc
   brew cask install google-drive-file-stream
 
+  # news
+  echo -e "\nDon't forget to install Reeder 3 manually!\n"
+
   # dev
   brew cask install visual-studio-code
 
