@@ -30,7 +30,7 @@ brew install exiv2
 brew install ssh-copy-id
 brew install tree
 brew install fzf
-yes |  /Users/$USER/homebrew/opt/fzf/install 
+yes |  $(brew --prefix)/opt/fzf/install
 
 # coding stuff
 brew install node
