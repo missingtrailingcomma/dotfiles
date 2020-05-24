@@ -65,7 +65,6 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   brew cask install keka
 
   # media
-  brew cask install google-chrome
   brew cask install vlc
   brew cask install google-drive-file-stream
 
