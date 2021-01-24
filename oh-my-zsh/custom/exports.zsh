@@ -30,3 +30,9 @@ export MANPAGER='less -X';
 # Avoid issues with `gpg` as installed via Homebrew.
 # https://stackoverflow.com/a/42265848/96656
 export GPG_TTY=$(tty);
+
+# Linux specific
+if [[ "$(uname -s)" == "Linux" ]]; then
+  # http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html
+  export LD_LIBRARY_PATH=$HOME/homebrew/lib:$LD_LIBRARY_PATH
+fi
