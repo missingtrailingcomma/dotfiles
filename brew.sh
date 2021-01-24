@@ -43,45 +43,45 @@ brew install aria2
 brew install monolith
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
+  # quicklook
+  # ref: https://github.com/sindresorhus/quick-look-plugins
+  # brew install qlcolorcode --cask
+  # brew install qlstephen --cask
+  # brew install qlmarkdown --cask
+  # brew install quicklook-json --cask
+  # brew install quicklook-csv --cask
+  # brew install webpquicklook --cask
+
+  # clean up
+  brew install appcleaner --cask
+
+  # system
+  brew install spectacle --cask
+
+  # files
+  brew install keka --cask
+
+  # media
+  brew install vlc --cask
+  brew install google-drive-file-stream --cask
+
+  # dev
+  brew install visual-studio-code --cask
+
+  # music
+  brew install musicbrainz-picard --cask
+
+  # gaming
+  brew install steam --cask
+
   # mac app store cmd management
   brew install mas
 
-  # quicklook
-  # ref: https://github.com/sindresorhus/quick-look-plugins
-  brew cask install qlcolorcode
-  brew cask install qlstephen
-  brew cask install qlmarkdown
-  brew cask install quicklook-json
-  brew cask install quicklook-csv
-  brew cask install webpquicklook
-
-  # clean up
-  brew cask install appcleaner
-
-  # system
-  brew cask install spectacle
-
-  # files
-  brew cask install keka
-
-  # media
-  brew cask install vlc
-  brew cask install google-drive-file-stream
+  # social
+  mas lucky WeChat
 
   # news
   echo -e "\nDon't forget to install Reeder 3 manually!\n"
-
-  # dev
-  brew cask install visual-studio-code
-
-  # music
-  brew cask install musicbrainz-picard
-
-  # gaming
-  brew cask install steam
-
-  # social
-  mas lucky WeChat
 fi
 
 brew cleanup

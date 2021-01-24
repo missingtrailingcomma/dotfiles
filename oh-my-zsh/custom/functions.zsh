@@ -46,7 +46,7 @@ function update() {
   brew update;
   brew upgrade;
   if [[ "$(uname -s)" == "Darwin" ]]; then
-    brew cask upgrade;
+    brew upgrade --cask;
   fi
   brew cleanup;
 }
