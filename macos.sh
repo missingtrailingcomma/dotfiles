@@ -53,7 +53,7 @@ for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
 		# "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
 		# "/System/Library/CoreServices/Menu Extras/Volume.menu" \
 		# "/System/Library/CoreServices/Menu Extras/User.menu" \
-		"/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
+		# "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
 done
 
 # defaults write com.apple.systemuiserver menuExtras -array \
@@ -126,9 +126,9 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 
 # Set a custom wallpaper image.
 # ref: https://github.com/herrbischoff/awesome-macos-command-line#wallpaper
-rm -rf ~/Library/Application Support/Dock/desktoppicture.db
-sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
-sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '${HOME}/Documents/wallpapers/2017_03CA.jpg'" && killall Dock
+# rm -rf ~/Library/Application Support/Dock/desktoppicture.db
+# sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
+# sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '${HOME}/Documents/wallpapers/2017_03CA.jpg'" && killall Dock
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -180,7 +180,7 @@ defaults write NSGlobalDomain AppleMetricUnits -bool true
 sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bool true
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
-sudo systemsetup -settimezone "America/Toronto" > /dev/null
+# sudo systemsetup -settimezone "America/Toronto" > /dev/null
 
 # Stop iTunes from responding to the keyboard media keys
 # launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null

@@ -63,7 +63,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
 
   # media
   brew install vlc --cask
-  brew install google-drive-file-stream --cask
+  brew install google-drive --cask
 
   # dev
   brew install visual-studio-code --cask
@@ -80,8 +80,11 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   # social
   mas lucky WeChat
 
+  # safari extension
+  mas install 1432731683 # Adblock Plus for Safari ABP
+
   # news
-  echo -e "\nDon't forget to install Reeder 3 manually!\n"
+  echo -e "\nDon't forget to install Reeder 4 manually!\n"
 fi
 
 brew cleanup
