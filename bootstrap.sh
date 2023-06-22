@@ -12,7 +12,7 @@ function doIt() {
   local HOME_BIN_DIR=~/bin;
   local PROJECT_DIR=~/Projectx;
   local GIT_AUTHOR_NAME="Yizheng Shen"
-  local GIT_AUTHOR_EMAIL="tinirdoc@gmail.com"
+  local GIT_AUTHOR_EMAIL="trailingcomma+github@gmail.com"
 
   echo "- creating ~/bin"
   mkdir -p $HOME_BIN_DIR

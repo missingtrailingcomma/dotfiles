@@ -33,7 +33,7 @@ brew install fzf
 yes |  $(brew --prefix)/opt/fzf/install
 
 # coding stuff
-brew install node
+# brew install node
 
 # download
 brew install youtube-dl
@@ -63,7 +63,6 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
 
   # media
   brew install vlc --cask
-  brew install google-drive --cask
 
   # dev
   brew install visual-studio-code --cask
@@ -72,16 +71,16 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   brew install musicbrainz-picard --cask
 
   # gaming
-  brew install steam --cask
+  # brew install steam --cask
 
   # mac app store cmd management
   brew install mas
 
   # social
-  mas lucky WeChat
+  # mas lucky WeChat
 
   # safari extension
-  mas install 1432731683 # Adblock Plus for Safari ABP
+  # mas install 1432731683 # Adblock Plus for Safari ABP
 
   # news
   echo -e "\nDon't forget to install Reeder 4 manually!\n"
