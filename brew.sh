@@ -19,6 +19,7 @@ brew install findutils # Install GNU `find`, `locate`, `updatedb`, and `xargs`, 
 brew install gnu-sed --with-default-names # Install GNU `sed`, overwriting the built-in `sed`.
 brew install wget --with-iri # Install `wget` with IRI support.
 
+brew install go
 brew install git
 brew install vim --with-override-system-vi
 brew install grep

@@ -69,13 +69,14 @@ plugins=(
     history-substring-search
     mercurial
     python
+    golang
     zsh-autosuggestions
     zsh-completions
     zsh-syntax-highlighting
 )
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
-  plugins+=(osx terminalapp)
+  plugins+=(macos)
 fi
 
 source $ZSH/oh-my-zsh.sh
