@@ -81,7 +81,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   # mas lucky WeChat
 
   # safari extension
-  # mas install 1432731683 # Adblock Plus for Safari ABP
+  mas install 1432731683 # Adblock Plus for Safari ABP
 
   # news
   echo -e "\nDon't forget to install Reeder 4 manually!\n"
