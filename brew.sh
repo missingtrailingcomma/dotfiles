@@ -61,6 +61,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
 
   # files
   brew install keka --cask
+  # wget -c https://github.com/lecepin/WeChatVideoDownloader/releases/download/v1.0.0/WeChatVideoDownloader-1.0.0.dmg --output-document WeChatVideoDownloader-1.0.0.dmg
 
   # media
   brew install vlc --cask
