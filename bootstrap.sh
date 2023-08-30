@@ -10,7 +10,6 @@ function gitCloneIfNotExist() {
 function doIt() {
   local OH_MY_ZSH_DIR=~/.oh-my-zsh;
   local HOME_BIN_DIR=~/bin;
-  local PROJECT_DIR=~/Projectx;
   local GIT_AUTHOR_NAME="Yizheng Shen"
   local GIT_AUTHOR_EMAIL="trailingcomma+github@gmail.com"
 
@@ -97,9 +96,6 @@ function doIt() {
   git config --global core.excludesfile ~/.gitignore_global
 
   # TODO: set up github as well
-
-  echo "- creating project dir: $PROJECT_DIR"
-  mkdir -p $PROJECT_DIR
 
   echo "- create other necessary dirs"
   mkdir -p  ~/Downloads
