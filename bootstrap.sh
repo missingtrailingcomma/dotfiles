@@ -26,6 +26,7 @@ function doIt() {
     --exclude "macos.sh" \
     --exclude "bootstrap.sh" \
     --exclude "brew.sh" \
+    --exclude "pip.sh" \
     --exclude ".zshrc" \
     --exclude "README.md" \
     --exclude "LICENSE-MIT.txt" \
@@ -64,6 +65,8 @@ function doIt() {
     echo "installing homebrew formulas"
     ./brew.sh;
   fi
+
+  ./pip.sh
 
   if [[ ! -d $OH_MY_ZSH_DIR ]]; then
     echo "installing oh-my-zsh";
@@ -110,6 +113,10 @@ function doIt() {
       ./macos.sh
     fi
   fi
+
+  echo "- check bootstrap.sh to set up github, https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+  # ssh-keygen -t ed25519 -C "trailingcomma@gmail.com"
+
 
   echo -e "\nDone done."
 }

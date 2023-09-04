@@ -28,3 +28,6 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+# https://unix.stackexchange.com/questions/37709/how-to-disable-autocorrection-for-sudo-command-in-zsh
+alias sudo='nocorrect sudo'

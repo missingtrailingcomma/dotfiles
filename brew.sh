@@ -32,6 +32,7 @@ brew install ssh-copy-id
 brew install tree
 brew install fzf
 yes |  $(brew --prefix)/opt/fzf/install
+brew install ffmpeg
 
 # coding stuff
 # brew install node
@@ -85,7 +86,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   mas install 1432731683 # Adblock Plus for Safari ABP
 
   # tools
-  mac lucky MenubarX
+  mas lucky MenubarX
 
   # news
   echo -e "\nDon't forget to install Reeder 4 manually!\n"
