@@ -36,6 +36,7 @@ function doIt() {
   echo ""
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     rsync ".zshrc" . ~ &>/dev/null;
+    source ~/.zshrc
   fi
 
   rsync --exclude ".DS_Store" \
@@ -86,13 +87,6 @@ function doIt() {
     gitCloneIfNotExist https://github.com/zsh-users/zsh-autosuggestions $ZSH_PLUGIN_PATH/zsh-autosuggestions
   fi
 
-  # Switch to using brew-installed zsh as default shell
-  if ! fgrep -q '~/homebrew/bin/zsh' /etc/shells && [[ $SHELL != '~/homebrew/bin/zsh' ]]; then
-    echo "- switching to zsh"
-    echo "~/homebrew/bin/zsh" | sudo tee -a /etc/shells;
-    chsh -s ~/homebrew/bin/zsh;
-  fi;
-
   echo "- setting up git"
   git config --global user.name "$GIT_AUTHOR_NAME"
   git config --global user.email "$GIT_AUTHOR_EMAIL"
@@ -101,9 +95,14 @@ function doIt() {
   # TODO: set up github as well
 
   echo "- create other necessary dirs"
-  mkdir -p  ~/Downloads
-  mkdir -p  ~/Desktop
-  mkdir -p  ~/Documents
+  mkdir -p ~/Downloads
+  mkdir -p ~/Desktop
+  mkdir -p ~/Documents
+  mkdir -p ~/Projectx
+
+  # pushd ~/Projectx
+  # git clone git@github.com:missingtrailingcomma/dotfiles.git
+  # popd
 
   if [[ "$(uname -s)" == "Darwin" ]]; then
     read -p "Tune macos defaults? (y/n) " -n 1
@@ -117,8 +116,14 @@ function doIt() {
   echo "- check bootstrap.sh to set up github, https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
   # ssh-keygen -t ed25519 -C "trailingcomma@gmail.com"
 
-
   echo -e "\nDone done."
+
+  # Switch to using brew-installed zsh as default shell
+  if ! fgrep -q '~/homebrew/bin/zsh' /etc/shells && [[ $SHELL != '~/homebrew/bin/zsh' ]]; then
+    echo "- switching to zsh"
+    echo "/opt/homebrew/bin/zsh" | sudo tee -a /etc/shells;
+    chsh -s ~/homebrew/bin/zsh;
+  fi;
 }
 
 read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
