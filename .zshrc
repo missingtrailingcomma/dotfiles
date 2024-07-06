@@ -1,11 +1,11 @@
 # set PATH environment variable
 # brew installed binary should override default binary
 if [[ "$(uname -s)" == "Darwin" ]]; then
-  export PATH=$HOME/homebrew/bin:$PATH
+  export PATH=/opt/homebrew/bin:$PATH
 elif [[ "$(uname -s)" == "Linux" ]]; then
   export PATH=$HOME/.linuxbrew/bin:$PATH
 fi
-export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$(go env GOPATH)/bin:$HOME/.local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -103,3 +103,5 @@ source $ZSH/oh-my-zsh.sh
 
 autoload -U compinit && compinit
 setopt histignorealldups sharehistory
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -35,7 +35,7 @@ yes |  $(brew --prefix)/opt/fzf/install
 brew install ffmpeg
 
 # coding stuff
-# brew install node
+brew install node
 
 # download
 brew install youtube-dl
@@ -69,12 +69,19 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
 
   # dev
   brew install visual-studio-code --cask
+  brew install orbstack --cask
+
+  # note
+  brew install notion --cask
+
+  # news
+  brew install netnewswire --cask
 
   # music
   brew install musicbrainz-picard --cask
 
   # gaming
-  # brew install steam --cask
+  brew install steam --cask
 
   # mac app store cmd management
   brew install mas
@@ -87,9 +94,6 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
 
   # tools
   mas lucky MenubarX
-
-  # news
-  echo -e "\nDon't forget to install Reeder 4 manually!\n"
 fi
 
 brew cleanup
