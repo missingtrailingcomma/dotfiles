@@ -74,14 +74,8 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   # note
   brew install notion --cask
 
-  # news
-  brew install netnewswire --cask
-
-  # music
-  brew install musicbrainz-picard --cask
-
-  # gaming
-  brew install steam --cask
+  # tool
+  brew install tailscale-app --cask 
 
   # mac app store cmd management
   brew install mas
@@ -91,9 +85,6 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
 
   # safari extension
   mas install 1432731683 # Adblock Plus for Safari ABP
-
-  # tools
-  mas lucky MenubarX
 fi
 
 brew cleanup
