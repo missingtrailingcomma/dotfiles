@@ -38,7 +38,7 @@ brew install ffmpeg
 brew install node
 
 # download
-brew install youtube-dl
+brew install yt-dlp
 brew install aria2
 
 # archive
