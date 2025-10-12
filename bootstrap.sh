@@ -11,7 +11,7 @@ function doIt() {
   local OH_MY_ZSH_DIR=~/.oh-my-zsh;
   local HOME_BIN_DIR=~/bin;
   local GIT_AUTHOR_NAME="Yizheng Shen"
-  local GIT_AUTHOR_EMAIL="trailingcomma+github@gmail.com"
+  local GIT_AUTHOR_EMAIL="trailingcomma@gmail.com"
 
   echo "- creating ~/bin"
   mkdir -p $HOME_BIN_DIR
@@ -71,7 +71,7 @@ function doIt() {
 
   if [[ ! -d $OH_MY_ZSH_DIR ]]; then
     echo "installing oh-my-zsh";
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   fi
 
   if [[ -d $OH_MY_ZSH_DIR ]]; then
@@ -105,12 +105,7 @@ function doIt() {
   # popd
 
   if [[ "$(uname -s)" == "Darwin" ]]; then
-    read -p "Tune macos defaults? (y/n) " -n 1
-    echo ""
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-      echo "- tuning macos defaults"
-      ./macos.sh
-    fi
+    echo "[AI] Run ./macos.sh to tune macos default"
   fi
 
   echo "- check bootstrap.sh to set up github, https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
