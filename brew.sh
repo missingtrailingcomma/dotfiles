@@ -55,7 +55,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   # brew install webpquicklook --cask
 
   # clean up
-  brew install appcleaner --cask
+  brew install tw93/tap/mole
 
   # system
   brew install spectacle --cask
