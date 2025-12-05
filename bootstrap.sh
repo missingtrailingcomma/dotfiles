@@ -26,7 +26,6 @@ function doIt() {
     --exclude "macos.sh" \
     --exclude "bootstrap.sh" \
     --exclude "brew.sh" \
-    --exclude "pip.sh" \
     --exclude ".zshrc" \
     --exclude "README.md" \
     --exclude "LICENSE-MIT.txt" \
@@ -66,8 +65,6 @@ function doIt() {
     echo "installing homebrew formulas"
     ./brew.sh;
   fi
-
-  ./pip.sh
 
   if [[ ! -d $OH_MY_ZSH_DIR ]]; then
     echo "installing oh-my-zsh";

@@ -36,6 +36,7 @@ brew install ffmpeg
 
 # coding stuff
 brew install node
+brew install python@3.12
 
 # download
 brew install yt-dlp
@@ -43,6 +44,10 @@ brew install aria2
 
 # archive
 brew install monolith
+
+  # non-brew tool management
+  brew install mas
+  brew install pipx
 
 if [[ "$(uname -s)" == "Darwin" ]]; then
   # quicklook
@@ -66,6 +71,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
 
   # media
   brew install vlc --cask
+  pipx install spotdl --python python3.12 --force
 
   # dev
   brew install visual-studio-code --cask
@@ -75,10 +81,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   brew install notion --cask
 
   # tool
-  brew install tailscale-app --cask 
-
-  # mac app store cmd management
-  brew install mas
+  brew install tailscale-app --cask
 
   # social
   mas lucky WeChat
